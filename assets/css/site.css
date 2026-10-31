@@ -79,7 +79,7 @@ nav ul:hover a:not(:hover){opacity:.65}
 .row .ti{font-size:clamp(1.1rem,2.2vw,1.7rem)}
 .row .meta{text-align:right;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
 .rows.work .row{grid-template-columns:3rem 1fr 280px 1fr}
-.rows.work .row img{width:auto;height:auto;max-width:260px;max-height:200px;object-fit:contain}
+.rows.work .row img{--bw:260px;--bh:200px;width:min(var(--bw),calc(var(--bh) * var(--r)));height:auto;max-width:var(--bw);max-height:var(--bh);aspect-ratio:var(--r);object-fit:contain}
 .row::before{content:"";position:absolute;inset:0;background:#fff;transform:translateY(101%);transition:transform .6s var(--ease)}
 .row>*{position:relative;transition:color .4s}
 .row:hover::before,.row:focus-visible::before{transform:none}
@@ -117,8 +117,8 @@ nav ul:hover a:not(:hover){opacity:.65}
   .kv{grid-column:1/-1;order:3}
 }
 @media(max-width:599px){.wall{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:899px){.work-page .lead img{width:100%;max-width:none;max-height:none}.work-page .gallery{columns:1;padding:3rem 18px}.work-page .gallery figure{max-width:none}}
-@media(max-width:699px){.rows.work .row{grid-template-columns:2rem 1fr 110px}.rows.work .row img{width:auto;height:auto;max-width:104px;max-height:104px;grid-column:3;grid-row:1}}
+@media(max-width:899px){.work-page .lead img{width:100%;max-width:none;max-height:none}.work-page .gallery{columns:1;padding:3rem 18px}.work-page .gallery figure{max-width:none;width:min(92vw,100%);margin-left:auto!important;margin-right:auto!important}}
+@media(max-width:699px){.rows.work .row{grid-template-columns:2rem 1fr 110px}.rows.work .row img{--bw:104px;--bh:104px;grid-column:3;grid-row:1}}
 @media(max-width:480px){nav ul{gap:0;font-size:.64rem;letter-spacing:.07em}nav a{padding:1.1rem .42rem}nav a::before{display:none}}
 
 /* page change: the new page wipes in from the bottom (browsers that support it) */
